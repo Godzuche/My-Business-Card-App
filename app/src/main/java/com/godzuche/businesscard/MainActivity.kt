@@ -109,7 +109,7 @@ fun ContactInfo(
         modifier = modifier
             .fillMaxSize()
     ) {
-        ContactInfoItem(contactIcon = Icons.Default.Call, contactText = "08059062965")
+        ContactInfoItem(contactIcon = Icons.Default.Call, contactText = "+234 805 9062 965")
         ContactInfoItem(contactIcon = Icons.Default.Share, contactText = "@Godxuche")
         ContactInfoItem(contactIcon = Icons.Default.Email, contactText = "godxuche@gmail.com")
     }
