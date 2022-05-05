@@ -5,13 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,7 +35,8 @@ class MainActivity : ComponentActivity() {
             BusinessCardTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background) {
+                    color = MaterialTheme.colorScheme.background) {
+                    BusinessCardApp()
                 }
             }
         }
@@ -50,11 +52,13 @@ fun BusinessCardApp() {
 fun BusinessCard(
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier
-        .fillMaxSize()
-        .background(AndroidDarkGreen)
-        .padding(16.dp)
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(AndroidDarkGreen)
+            .padding(16.dp),
     ) {
+        Spacer(modifier = Modifier.height(120.dp))
         MyDetails(
             iconPainter = painterResource(R.drawable.android_logo),
             modifier = Modifier.weight(1f))
@@ -77,19 +81,20 @@ fun MyDetails(
             contentDescription = null,
             tint = AndroidGreen,
             modifier = Modifier
-                .size(72.dp)
+                .size(88.dp)
         )
         Text(
-            text = "God'swill U. Jonathan",
+            text = "God'swill Jonathan",
             fontSize = 36.sp,
-            fontWeight = FontWeight.Light,
+            fontWeight = FontWeight.ExtraLight,
             color = Color.White,
             modifier = Modifier.padding(bottom = 8.dp)
         )
         Text(
             text = "Native Android Developer",
             fontSize = 16.sp,
-            color = Color.White,
+            color = AndroidGreen,
+            fontWeight = FontWeight.SemiBold
         )
 
     }
@@ -100,10 +105,12 @@ fun ContactInfo(
     modifier: Modifier = Modifier,
 ) {
     Column(
+        verticalArrangement = Arrangement.Bottom,
         modifier = modifier
             .fillMaxSize()
     ) {
         ContactInfoItem(contactIcon = Icons.Default.Call, contactText = "08059062965")
+        ContactInfoItem(contactIcon = Icons.Default.Share, contactText = "@Godxuche")
         ContactInfoItem(contactIcon = Icons.Default.Email, contactText = "godxuche@gmail.com")
     }
 }
@@ -114,8 +121,9 @@ fun ContactInfoItem(
     contactText: String,
 ) {
     Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .padding(start = 24.dp)
+            .padding(start = 24.dp, top = 12.dp, bottom = 12.dp, end = 24.dp)
     ) {
         Icon(
             imageVector = contactIcon,
