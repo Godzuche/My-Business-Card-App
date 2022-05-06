@@ -49,25 +49,31 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BusinessCardApp() {
-    BusinessCard()
-}
-
-@Composable
-fun BusinessCard(
-    modifier: Modifier = Modifier,
-) {
-    Column(
-        modifier = modifier
+    BusinessCard(
+        modifier = Modifier
             .fillMaxSize()
             .background(AndroidDarkGreen)
             .padding(16.dp)
-    ) {
-        Spacer(modifier = Modifier.height(120.dp))
+    )
+}
+
+@Composable
+fun BusinessCard(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Spacer(modifier = Modifier.height(80.dp))
         MyDetails(
             iconPainter = painterResource(R.drawable.android_logo),
-            modifier = Modifier.weight(1f)
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center)
         )
-        ContactInfo(modifier = Modifier.weight(1f))
+        ContactInfo(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxSize()
+                .wrapContentHeight(Alignment.Bottom)
+        )
         Spacer(modifier = Modifier.height(12.dp))
     }
 }
@@ -78,8 +84,9 @@ fun MyDetails(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxSize()
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+
     ) {
         Icon(
             painter = iconPainter,
@@ -105,12 +112,10 @@ fun MyDetails(
 }
 
 @Composable
-fun ContactInfo(
-    modifier: Modifier = Modifier,
-) {
+fun ContactInfo(modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Bottom,
-        modifier = modifier.fillMaxSize()
+        modifier = modifier
     ) {
         ContactInfoItem(
             contactIcon = Icons.Default.Call,
