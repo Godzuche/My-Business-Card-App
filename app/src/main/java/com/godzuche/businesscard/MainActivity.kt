@@ -79,15 +79,13 @@ fun MyDetails(
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
-            .fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         Icon(
             painter = iconPainter,
             contentDescription = null,
             tint = AndroidGreen,
-            modifier = Modifier
-                .size(88.dp)
+            modifier = Modifier.size(88.dp)
         )
         Text(
             text = stringResource(R.string.godswill_jonathan),
@@ -97,7 +95,7 @@ fun MyDetails(
             modifier = Modifier.padding(bottom = 8.dp)
         )
         Text(
-            text = "Native Android Developer",
+            text = stringResource(R.string.job_title),
             fontSize = 16.sp,
             color = AndroidGreen,
             fontWeight = FontWeight.SemiBold
@@ -112,8 +110,7 @@ fun ContactInfo(
 ) {
     Column(
         verticalArrangement = Arrangement.Bottom,
-        modifier = modifier
-            .fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         ContactInfoItem(
             contactIcon = Icons.Default.Call,
@@ -138,13 +135,11 @@ fun ContactInfoItem(
     Divider(
         color = Color.White.copy(alpha = 0.2f),
         thickness = 1.dp,
-        modifier = Modifier
-            .fillMaxWidth()
+        modifier = Modifier.fillMaxWidth()
     )
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .padding(start = 24.dp, top = 12.dp, bottom = 12.dp, end = 24.dp)
+        modifier = Modifier.padding(start = 24.dp, top = 12.dp, bottom = 12.dp, end = 24.dp)
     ) {
         Icon(
             imageVector = contactIcon,
