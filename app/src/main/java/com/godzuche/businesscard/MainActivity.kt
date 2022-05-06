@@ -65,8 +65,10 @@ fun BusinessCard(
         Spacer(modifier = Modifier.height(120.dp))
         MyDetails(
             iconPainter = painterResource(R.drawable.android_logo),
-            modifier = Modifier.weight(1f))
+            modifier = Modifier.weight(1f)
+        )
         ContactInfo(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.height(12.dp))
     }
 }
 
