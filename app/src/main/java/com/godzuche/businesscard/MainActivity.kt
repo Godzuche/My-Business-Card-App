@@ -6,11 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MenuDefaults.Divider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,8 +36,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             BusinessCardTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background) {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
                     BusinessCardApp()
                 }
             }
@@ -56,7 +60,7 @@ fun BusinessCard(
         modifier = modifier
             .fillMaxSize()
             .background(AndroidDarkGreen)
-            .padding(16.dp),
+            .padding(16.dp)
     ) {
         Spacer(modifier = Modifier.height(120.dp))
         MyDetails(
@@ -84,7 +88,7 @@ fun MyDetails(
                 .size(88.dp)
         )
         Text(
-            text = "God'swill Jonathan",
+            text = stringResource(R.string.godswill_jonathan),
             fontSize = 36.sp,
             fontWeight = FontWeight.ExtraLight,
             color = Color.White,
@@ -109,9 +113,18 @@ fun ContactInfo(
         modifier = modifier
             .fillMaxSize()
     ) {
-        ContactInfoItem(contactIcon = Icons.Default.Call, contactText = "+234 805 9062 965")
-        ContactInfoItem(contactIcon = Icons.Default.Share, contactText = "@Godxuche")
-        ContactInfoItem(contactIcon = Icons.Default.Email, contactText = "godxuche@gmail.com")
+        ContactInfoItem(
+            contactIcon = Icons.Default.Call,
+            contactText = stringResource(R.string.phone_number)
+        )
+        ContactInfoItem(
+            contactIcon = Icons.Default.AccountBox,
+            contactText = stringResource(R.string.godxuche)
+        )
+        ContactInfoItem(
+            contactIcon = Icons.Default.Email,
+            contactText = stringResource(R.string.email_address)
+        )
     }
 }
 
@@ -120,6 +133,12 @@ fun ContactInfoItem(
     contactIcon: ImageVector,
     contactText: String,
 ) {
+    Divider(
+        color = Color.White.copy(alpha = 0.2f),
+        thickness = 1.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+    )
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier

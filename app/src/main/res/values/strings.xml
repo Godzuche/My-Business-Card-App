@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Business Card</string>
+    <string name="godswill_jonathan">God\'swill Jonathan</string>
+    <string name="godxuche">\@Godxuche</string>
+    <string name="phone_number">+234 805 906 2965</string>
+    <string name="email_address">Godxuche@gmail.com</string>
 </resources>
